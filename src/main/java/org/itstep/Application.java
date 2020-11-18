@@ -6,11 +6,11 @@ public class Application {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Scanner scan2 = new Scanner(System.in);
-        int allDaysCosts=0;
-        int len=1;
-        Animal[] zoo=new Animal[len];
-        int c=8;
-        while(c!=7) {
+        int allDaysCosts = 0;
+        int len = 1;
+        Animal[] zoo = new Animal[len];
+        int c = 8;
+        while (c != 7) {
             System.out.print("1 - Add new Animal\n2 - Show all\n");
             System.out.print("3 - Delete animal\n4 - Add expenses for the current day\n");
             System.out.print("5 - Calculation of food costs for all animals for the current day\n");
@@ -45,6 +45,7 @@ public class Application {
                             int length = scan.nextInt();
                             System.out.print("Day costs:");
                             int dayCosts = scan.nextInt();
+                            allDaysCosts+=dayCosts;
                             newZoo[newZoo.length - 1] = new Snake(name, age, weight, number, time, length, dayCosts);
                             len = newLen;
                             break;
@@ -61,6 +62,7 @@ public class Application {
                             int time2 = scan.nextInt();
                             System.out.print("Day Costs:");
                             int dayCosts2 = scan.nextInt();
+                            allDaysCosts+=dayCosts2;
                             System.out.print("Flock:");
                             String flock2 = scan2.nextLine();
                             System.out.print("Color:");
@@ -81,6 +83,7 @@ public class Application {
                             int time3 = scan.nextInt();
                             System.out.print("Day Costs:");
                             int dayCosts3 = scan.nextInt();
+                            allDaysCosts+=dayCosts3;
                             System.out.print("Flock:");
                             String flock3 = scan2.nextLine();
                             System.out.print("Color:");
@@ -89,9 +92,14 @@ public class Application {
                             len = newLen;
                             break;
                     }
+                    zoo[zoo.length - 1] = newZoo[zoo.length - 1];
                     break;
                 case 2:
                     for (int i = 0; i < zoo.length; i++) {
+                        if(zoo[i].getName().equals(null)){
+                            System.err.print("There is no animals yet\n");
+                            break;
+                        }
                         System.out.print(zoo[i].getName() + "\n");
                     }
                     break;
@@ -121,12 +129,13 @@ public class Application {
                     for (int i = 0; i < zoo.length; i++) {
                         sum += zoo[i].getDayCosts();
                     }
+                    System.out.println("Costs for all animals for current day:"+sum+"\n");
                     break;
                 case 6:
                     System.out.print("All days costs:" + allDaysCosts + "\n");
                     break;
                 case 7:
-                    c=7;
+                    c = 7;
                     break;
             }
 
