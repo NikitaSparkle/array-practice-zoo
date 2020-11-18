@@ -7,7 +7,7 @@ public class Application {
         Scanner scan = new Scanner(System.in);
         Scanner scan2 = new Scanner(System.in);
         int allDaysCosts = 0;
-        int len = 1;
+        int len = 0;
         Animal[] zoo = new Animal[len];
         int c = 8;
         while (c != 7) {
@@ -17,14 +17,20 @@ public class Application {
             System.out.print("6 - Calculation of food costs for all animals for all days\n");
             System.out.print("7 - Exit\n");
             System.out.print(">>");
+            System.out.print("\n");
             c = scan.nextInt();
             switch (c) {
                 case 1:
                     len++;
+                    Animal[] newZoo = new Animal[len];
+                        for (int i = 0; i < zoo.length; i++) {
+                            newZoo[i]=zoo[i];
+                        }
                     int c2;
                     System.out.print("1 - Snake\n2 - Cat\n");
                     System.out.print("3 - Dog\n");
                     System.out.print(">>");
+                    System.out.print("\n");
                     c2 = scan.nextInt();
                     switch (c2) {
                         case 1:
@@ -43,7 +49,11 @@ public class Application {
                             System.out.print("Day costs:");
                             int dayCosts = scan.nextInt();
                             allDaysCosts+=dayCosts;
-                            zoo[zoo.length-1] = new Snake(name, age, weight, number, time, length, dayCosts);
+                            newZoo[newZoo.length-1] = new Snake(name, age, weight, number, time, length, dayCosts);
+                            zoo=new Animal[len];
+                            for (int i = 0; i < zoo.length; i++) {
+                                zoo[i]=newZoo[i];
+                            }
                             break;
                         case 2:
                             System.out.print("Name:");
@@ -63,7 +73,11 @@ public class Application {
                             String flock2 = scan2.nextLine();
                             System.out.print("Color:");
                             String color2 = scan2.nextLine();
-                            zoo[zoo.length - 1] = new Cat(name2, age2, weight2, number2, time2, dayCosts2, flock2, color2);
+                            newZoo[newZoo.length - 1] = new Cat(name2, age2, weight2, number2, time2, dayCosts2, flock2, color2);
+                            zoo=new Animal[len];
+                            for (int i = 0; i < zoo.length; i++) {
+                                zoo[i]=newZoo[i];
+                            }
                             break;
                         case 3:
                             System.out.print("Name:");
@@ -83,7 +97,11 @@ public class Application {
                             String flock3 = scan2.nextLine();
                             System.out.print("Color:");
                             String color3 = scan2.nextLine();
-                            zoo[zoo.length - 1] = new Dog(name3, age3, weight3, number3, time3, dayCosts3, flock3, color3);
+                            newZoo[newZoo.length - 1] = new Dog(name3, age3, weight3, number3, time3, dayCosts3, flock3, color3);
+                            zoo=new Animal[len];
+                            for (int i = 0; i < zoo.length; i++) {
+                                zoo[i]=newZoo[i];
+                            }
                             break;
                     }
                     break;
@@ -91,6 +109,7 @@ public class Application {
                     for (int i = 0; i < zoo.length; i++) {
                         System.out.print(zoo[i].getName() + "\n");
                     }
+                    System.out.print("\n");
                     break;
                 case 3:
                     System.out.print("Enter name of an animal:");
