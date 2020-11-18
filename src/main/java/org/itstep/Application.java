@@ -20,14 +20,11 @@ public class Application {
             c = scan.nextInt();
             switch (c) {
                 case 1:
-                    int newLen = len++;
-                    Animal[] newZoo = new Animal[newLen];
-                    for (int i = 0; i < newZoo.length; i++) {
-                        newZoo[i] = zoo[i];
-                    }
+                    len++;
                     int c2;
                     System.out.print("1 - Snake\n2 - Cat\n");
                     System.out.print("3 - Dog\n");
+                    System.out.print(">>");
                     c2 = scan.nextInt();
                     switch (c2) {
                         case 1:
@@ -46,8 +43,7 @@ public class Application {
                             System.out.print("Day costs:");
                             int dayCosts = scan.nextInt();
                             allDaysCosts+=dayCosts;
-                            newZoo[newZoo.length - 1] = new Snake(name, age, weight, number, time, length, dayCosts);
-                            len = newLen;
+                            zoo[zoo.length-1] = new Snake(name, age, weight, number, time, length, dayCosts);
                             break;
                         case 2:
                             System.out.print("Name:");
@@ -67,8 +63,7 @@ public class Application {
                             String flock2 = scan2.nextLine();
                             System.out.print("Color:");
                             String color2 = scan2.nextLine();
-                            newZoo[newZoo.length - 1] = new Cat(name2, age2, weight2, number2, time2, dayCosts2, flock2, color2);
-                            len = newLen;
+                            zoo[zoo.length - 1] = new Cat(name2, age2, weight2, number2, time2, dayCosts2, flock2, color2);
                             break;
                         case 3:
                             System.out.print("Name:");
@@ -88,11 +83,9 @@ public class Application {
                             String flock3 = scan2.nextLine();
                             System.out.print("Color:");
                             String color3 = scan2.nextLine();
-                            newZoo[newZoo.length - 1] = new Dog(name3, age3, weight3, number3, time3, dayCosts3, flock3, color3);
-                            len = newLen;
+                            zoo[zoo.length - 1] = new Dog(name3, age3, weight3, number3, time3, dayCosts3, flock3, color3);
                             break;
                     }
-                    zoo[zoo.length - 1] = newZoo[zoo.length - 1];
                     break;
                 case 2:
                     for (int i = 0; i < zoo.length; i++) {
