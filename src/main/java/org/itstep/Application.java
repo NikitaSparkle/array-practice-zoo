@@ -89,10 +89,6 @@ public class Application {
                     break;
                 case 2:
                     for (int i = 0; i < zoo.length; i++) {
-                        if(zoo[i].getName().equals(null)){
-                            System.err.print("There is no animals yet\n");
-                            break;
-                        }
                         System.out.print(zoo[i].getName() + "\n");
                     }
                     break;
